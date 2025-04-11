@@ -7,6 +7,24 @@ window.addEventListener('click', () => {
   audio.play();
 });
 
+// Play/Pause button functionality
+const playPauseBtn = document.getElementById("playPauseBtn");
+playPauseBtn.addEventListener('click', () => {
+  if (audio.paused) {
+    audio.play();
+    playPauseBtn.textContent = 'Pause';
+  } else {
+    audio.pause();
+    playPauseBtn.textContent = 'Play';
+  }
+});
+
+// Volume control functionality
+const volumeSlider = document.getElementById("volumeSlider");
+volumeSlider.addEventListener('input', (e) => {
+  audio.volume = e.target.value;
+});
+
 // 💖 Create star-shaped sparkle
 function createSparkle(strong = false) {
   const sparkle = document.createElementNS("http://www.w3.org/2000/svg", "svg");
@@ -59,4 +77,3 @@ setInterval(() => {
   }
   beat = !beat;
 }, 600);
-
